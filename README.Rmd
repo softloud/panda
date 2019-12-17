@@ -1,0 +1,107 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# panda
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of panda is to make panda pictures that say my words.
+
+```{r}
+library(panda)
+
+panda("I say words!")
+```
+
+
+## installation
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("softloud/panda")
+```
+
+## motivating usage
+```{r echo=FALSE}
+mittens_msg <- "My name is Mittens and I am a panda. Aren't I cute?"
+socks_msg <-     "My name is Socks.
+    I am a replication of Mittens.
+        I may or may not be as cute as Mittens, 
+        as there is randomness in the panda algorithm."
+buttons_msg <- "My names is Buttons and 
+        my panda number is 26. 
+        I am very cute."
+boots_msg <- "My name is Boots. 
+    I am exactly as cute as Buttons.
+    My panda number is also 26. 
+    I am a reproduction of Buttons and a replication of Mittens."
+
+```
+
+
+```{r }
+library(patchwork)
+
+panda(mittens_msg, panda = 52) +
+  panda(socks_msg) +
+  panda(buttons_msg, panda = 26) +
+  panda(boots_msg, panda = 26)
+
+```
+
+## how to make a panda
+
+```{r out.width="50%"}
+# random panda
+panda()
+
+
+```
+
+```{r}
+# panda speaks
+panda("I speaketh the words.")
+
+```
+
+
+```{r out.width="50%"}
+# selct specific panda
+panda(panda = 26)
+
+```
+
+
+
+
+```{r}
+# select from default pandas
+pandas
+
+
+
+```
+
+```{r}
+# select panda by name or mood
+panda(descriptor = "declatory",
+      msg = "I am a declaratory panda")
+panda(descriptor = "Mittens",
+      msg = "My names is Mittens.")
+
+```
