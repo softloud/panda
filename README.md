@@ -13,7 +13,7 @@ The goal of panda is to make panda pictures that say my words.
 library(panda)
 
 panda("I say words!")
-#> Set panda = 99 to reproduce this panda.
+#> Set panda = 47 to reproduce this panda.
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -94,7 +94,7 @@ panda(descriptor = "declatory",
 
 ``` r
 panda(descriptor = "Mittens",
-      msg = "My names is Mittens.")
+      msg = "My name is Mittens.")
 #> Set panda = 52 to reproduce this panda.
 ```
 

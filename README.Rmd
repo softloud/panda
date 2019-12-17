@@ -43,7 +43,7 @@ socks_msg <-     "My name is Socks.
     I am a replication of Mittens.
         I may or may not be as cute as Mittens, 
         as there is randomness in the panda algorithm."
-buttons_msg <- "My names is Buttons and 
+buttons_msg <- "My name is Buttons and 
         my panda number is 26. 
         I am very cute."
 boots_msg <- "My name is Boots. 
@@ -102,6 +102,6 @@ pandas
 panda(descriptor = "declatory",
       msg = "I am a declaratory panda")
 panda(descriptor = "Mittens",
-      msg = "My names is Mittens.")
+      msg = "My name is Mittens.")
 
 ```
