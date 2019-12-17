@@ -13,7 +13,7 @@ The goal of panda is to make panda pictures that say my words.
 library(panda)
 
 panda("I say words!")
-#> Set panda = 60 to reproduce this panda.
+#> Set panda = 1 to reproduce this panda.
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -109,3 +109,51 @@ panda(descriptor = "Mittens",
 ```
 
 <img src="man/figures/README-unnamed-chunk-9-2.png" width="100%" />
+
+## gallery
+
+``` r
+# moods
+pandas %>% 
+  dplyr::filter(type == "mood") %>% 
+  purrr::pluck('descriptor') %>% 
+  purrr::map(.f = function(x) {
+    panda(msg = x, descriptor = x)
+  })
+#> Set panda = 73 to reproduce this panda.
+#> Set panda = 26 to reproduce this panda.
+#> [[1]]
+```
+
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+
+    #> 
+    #> [[2]]
+
+<img src="man/figures/README-unnamed-chunk-10-2.png" width="100%" />
+
+``` r
+# pandas by name
+pandas %>% 
+  dplyr::filter(type == "name") %>% 
+  purrr::pluck('descriptor') %>% 
+  purrr::map(.f = function(x) {
+    panda(msg = x, descriptor = x)
+  })
+#> Set panda = 52 to reproduce this panda.
+#> Set panda = 26 to reproduce this panda.
+#> Set panda = 26 to reproduce this panda.
+#> [[1]]
+```
+
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
+
+    #> 
+    #> [[2]]
+
+<img src="man/figures/README-unnamed-chunk-11-2.png" width="100%" />
+
+    #> 
+    #> [[3]]
+
+<img src="man/figures/README-unnamed-chunk-11-3.png" width="100%" />

@@ -79,8 +79,6 @@ panda(stamp = FALSE)
 # panda speaks
 panda("I speaketh the words.")
 
-
-
 ```
 
 
@@ -109,3 +107,30 @@ panda(descriptor = "Mittens",
       msg = "My name is Mittens.")
 
 ```
+
+
+## gallery
+
+```{r }
+# moods
+pandas %>% 
+  dplyr::filter(type == "mood") %>% 
+  purrr::pluck('descriptor') %>% 
+  purrr::map(.f = function(x) {
+    panda(msg = x, descriptor = x)
+  })
+
+```
+
+```{r}
+# pandas by name
+pandas %>% 
+  dplyr::filter(type == "name") %>% 
+  purrr::pluck('descriptor') %>% 
+  purrr::map(.f = function(x) {
+    panda(msg = x, descriptor = x)
+  })
+
+
+```
+
