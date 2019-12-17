@@ -70,12 +70,16 @@ panda(mittens_msg, panda = 52) +
 # random panda
 panda()
 
+# random panda no information stamped on image about panda number
+panda(stamp = FALSE)
 
 ```
 
 ```{r}
 # panda speaks
 panda("I speaketh the words.")
+
+
 
 ```
 

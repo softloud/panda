@@ -13,7 +13,7 @@ The goal of panda is to make panda pictures that say my words.
 library(panda)
 
 panda("I say words!")
-#> Set panda = 47 to reproduce this panda.
+#> Set panda = 60 to reproduce this panda.
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -55,9 +55,19 @@ panda()
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="50%" />
 
 ``` r
+
+# random panda no information stamped on image about panda number
+panda(stamp = FALSE)
+#> Set panda = 53 to reproduce this panda.
+#> Warning: Removed 1 rows containing missing values (geom_text).
+```
+
+<img src="man/figures/README-unnamed-chunk-5-2.png" width="50%" />
+
+``` r
 # panda speaks
 panda("I speaketh the words.")
-#> Set panda = 53 to reproduce this panda.
+#> Set panda = 76 to reproduce this panda.
 ```
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
