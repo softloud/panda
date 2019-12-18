@@ -57,10 +57,15 @@ boots_msg <- "My name is Boots.
 ```{r }
 library(patchwork)
 
-panda(mittens_msg, panda = 52) +
+rvr <- panda(mittens_msg, panda = 52) +
   panda(socks_msg) +
   panda(buttons_msg, panda = 26) +
   panda(boots_msg, panda = 26)
+
+# usethis::use_data(rvr, overwrite = TRUE)
+# 
+
+rvr
 
 ```
 

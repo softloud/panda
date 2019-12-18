@@ -13,7 +13,7 @@ The goal of panda is to make panda pictures that say my words.
 library(panda)
 
 panda("I say words!")
-#> Set panda = 1 to reproduce this panda.
+#> Set panda = 90 to reproduce this panda.
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -32,7 +32,7 @@ devtools::install_github("softloud/panda")
 ``` r
 library(patchwork)
 
-panda(mittens_msg, panda = 52) +
+rvr <- panda(mittens_msg, panda = 52) +
   panda(socks_msg) +
   panda(buttons_msg, panda = 26) +
   panda(boots_msg, panda = 26)
@@ -40,6 +40,11 @@ panda(mittens_msg, panda = 52) +
 #> Set panda = 53 to reproduce this panda.
 #> Set panda = 26 to reproduce this panda.
 #> Set panda = 26 to reproduce this panda.
+
+# usethis::use_data(rvr, overwrite = TRUE)
+# 
+
+rvr
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
@@ -83,14 +88,15 @@ panda(panda = 26)
 ``` r
 # select from default pandas
 pandas
-#> # A tibble: 5 x 3
-#>   descriptor   seed type 
-#>   <chr>       <dbl> <chr>
-#> 1 declaratory    73 mood 
-#> 2 wondering      26 mood 
-#> 3 Mittens        52 name 
-#> 4 Boots          26 name 
-#> 5 Buttons        26 name
+#> # A tibble: 6 x 4
+#>   descriptor   seed type  adopted_by 
+#>   <chr>       <dbl> <chr> <chr>      
+#> 1 declaratory    73 mood  <NA>       
+#> 2 wondering      26 mood  <NA>       
+#> 3 Mittens        52 name  <NA>       
+#> 4 Boots          26 name  <NA>       
+#> 5 Buttons        26 name  <NA>       
+#> 6 Beanie         17 name  jenrichmond
 ```
 
 ``` r
@@ -143,6 +149,7 @@ pandas %>%
 #> Set panda = 52 to reproduce this panda.
 #> Set panda = 26 to reproduce this panda.
 #> Set panda = 26 to reproduce this panda.
+#> Set panda = 17 to reproduce this panda.
 #> [[1]]
 ```
 
@@ -157,3 +164,8 @@ pandas %>%
     #> [[3]]
 
 <img src="man/figures/README-unnamed-chunk-11-3.png" width="100%" />
+
+    #> 
+    #> [[4]]
+
+<img src="man/figures/README-unnamed-chunk-11-4.png" width="100%" />

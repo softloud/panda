@@ -138,6 +138,16 @@ panda <- function(msg = NULL,
 
   }
 
+  name_tag <- add_text +
+    ggplot2::annotate(
+      "text",
+      x = panda_body_coord("head", "x") +
+        (panda_body_coord("head", "radius") * 2.3),
+      y = panda_body_coord("body", "y") - panda_body_coord("body", "radius"),
+      colour = "black",
+      label = stringr::str_wrap(paste("--", descriptor), width = 25)
+    )
+
   output_plot <- add_text +
     ggplot2::annotate(
       "text",
