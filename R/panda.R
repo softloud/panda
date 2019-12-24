@@ -143,30 +143,30 @@ panda <- function(msg = NULL,
   }
 
   # if the panda is named and adopted
-  tagged_adopted <- ""
-    # dplyr::case_when(
-    #   is.null(input_descriptor) ~ pandas_panda,
-    #   !is.null(input_descriptor) &&
-    #   input_descriptor %in%
-    #     (pandas %>% purrr::pluck("descriptor")) &&
-    #     is.na(adopted_by) ~ paste(input_descriptor,
-    #                               " ((adopt me!))"),
-    #   !is.null(input_descriptor) &&
-    #     input_descriptor %in%
-    #     (pandas %>% purrr::pluck("descriptor")) &&
-    #     !is.na(adopted_by) ~ paste(input_descriptor,
-    #                               ", adopted by )",
-    #                               pandas_panda %>% purrr::pluck("adopted_by")),
-    #   TRUE ~ "error"
-    #
-    # )
+  tagged_adopted <-
+    dplyr::case_when(
+      is.null(input_descriptor) ~ paste("panda ", panda_seed),
+      !is.null(input_descriptor) &&
+      input_descriptor %in%
+        (pandas %>% purrr::pluck("descriptor")) &&
+        is.na(adopted_by) ~ paste(input_descriptor,
+                                  " ((adopt me!))"),
+      !is.null(input_descriptor) &&
+        input_descriptor %in%
+        (pandas %>% purrr::pluck("descriptor")) &&
+        !is.na(pandas_panda %>% purrr::pluck("adopted_by")) ~ paste(input_descriptor,
+                                  ", adopted by )",
+                                  pandas_panda %>% purrr::pluck("adopted_by")),
+      TRUE ~ "error"
+
+    )
 
 
   name_tag <- add_msg +
     ggplot2::annotate(
       "text",
       x = panda_body_coord("head", "x") +
-        (panda_body_coord("head", "radius") * 2.3),
+        (panda_body_coord("head", "radius") * 1.4),
       y = panda_body_coord("body", "y") - panda_body_coord("body", "radius"),
       colour = "black",
       label = stringr::str_wrap(paste("--", tagged_adopted), width = 25)
@@ -177,7 +177,7 @@ panda <- function(msg = NULL,
     ggplot2::annotate(
       "text",
       x =  panda_body_coord("head", "x") -
-        (panda_body_coord("head", "radius") * 1.4),
+        (panda_body_coord("head", "radius") * 1.3),
       y = panda_body_coord("body", "y"),
       colour = "lightgrey",
       size = 2.7,
