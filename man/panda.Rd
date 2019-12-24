@@ -4,17 +4,17 @@
 \alias{panda}
 \title{Make a panda}
 \usage{
-panda(msg = NULL, descriptor = NULL, panda = "random", stamp = TRUE)
+panda(msg = NULL, input_descriptor = NULL, panda = "random", stamp = TRUE)
 }
 \arguments{
 \item{msg}{The panda can speak your words.}
-
-\item{descriptor}{Select descriptor from [pandas].}
 
 \item{panda}{Set a random seed to reproduce a panda.}
 
 \item{stamp}{Set to `FALSE` if you wish to remove details text in bottom
 right of image.}
+
+\item{descriptor}{Select descriptor from [pandas].}
 }
 \description{
 Make a panda

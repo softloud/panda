@@ -13,7 +13,7 @@ The goal of panda is to make panda pictures that say my words.
 library(panda)
 
 panda("I say words!")
-#> Set panda = 90 to reproduce this panda.
+#> Set panda = 70 to reproduce this panda.
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -93,9 +93,9 @@ pandas
 #>   <chr>       <dbl> <chr> <chr>      
 #> 1 declaratory    73 mood  <NA>       
 #> 2 wondering      26 mood  <NA>       
-#> 3 Mittens        52 name  <NA>       
-#> 4 Boots          26 name  <NA>       
-#> 5 Buttons        26 name  <NA>       
+#> 3 Mittens        52 name  softloud   
+#> 4 Boots          26 name  softloud   
+#> 5 Buttons        26 name  softloud   
 #> 6 Beanie         17 name  jenrichmond
 ```
 
@@ -103,69 +103,16 @@ pandas
 # select panda by name or mood
 panda(descriptor = "declatory",
       msg = "I am a declaratory panda")
-#> Set panda =  to reproduce this panda.
-```
-
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
-
-``` r
 panda(descriptor = "Mittens",
       msg = "My name is Mittens.")
-#> Set panda = 52 to reproduce this panda.
 ```
-
-<img src="man/figures/README-unnamed-chunk-9-2.png" width="100%" />
 
 ## gallery
 
 ``` r
 # moods
-pandas %>% 
-  dplyr::filter(type == "mood") %>% 
-  purrr::pluck('descriptor') %>% 
-  purrr::map(.f = function(x) {
-    panda(msg = x, descriptor = x)
-  })
-#> Set panda = 73 to reproduce this panda.
-#> Set panda = 26 to reproduce this panda.
-#> [[1]]
 ```
-
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
-
-    #> 
-    #> [[2]]
-
-<img src="man/figures/README-unnamed-chunk-10-2.png" width="100%" />
 
 ``` r
 # pandas by name
-pandas %>% 
-  dplyr::filter(type == "name") %>% 
-  purrr::pluck('descriptor') %>% 
-  purrr::map(.f = function(x) {
-    panda(msg = x, descriptor = x)
-  })
-#> Set panda = 52 to reproduce this panda.
-#> Set panda = 26 to reproduce this panda.
-#> Set panda = 26 to reproduce this panda.
-#> Set panda = 17 to reproduce this panda.
-#> [[1]]
 ```
-
-<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
-
-    #> 
-    #> [[2]]
-
-<img src="man/figures/README-unnamed-chunk-11-2.png" width="100%" />
-
-    #> 
-    #> [[3]]
-
-<img src="man/figures/README-unnamed-chunk-11-3.png" width="100%" />
-
-    #> 
-    #> [[4]]
-
-<img src="man/figures/README-unnamed-chunk-11-4.png" width="100%" />

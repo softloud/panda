@@ -104,7 +104,7 @@ pandas
 
 ```
 
-```{r}
+```{r eval=FALSE}
 # select panda by name or mood
 panda(descriptor = "declatory",
       msg = "I am a declaratory panda")
@@ -118,23 +118,13 @@ panda(descriptor = "Mittens",
 
 ```{r }
 # moods
-pandas %>% 
-  dplyr::filter(type == "mood") %>% 
-  purrr::pluck('descriptor') %>% 
-  purrr::map(.f = function(x) {
-    panda(msg = x, descriptor = x)
-  })
+
 
 ```
 
 ```{r}
 # pandas by name
-pandas %>% 
-  dplyr::filter(type == "name") %>% 
-  purrr::pluck('descriptor') %>% 
-  purrr::map(.f = function(x) {
-    panda(msg = x, descriptor = x)
-  })
+
 
 
 ```

@@ -9,16 +9,16 @@
 #' @export
 
 panda <- function(msg = NULL,
-                  descriptor = NULL,
+                  input_descriptor = NULL,
                   panda = "random",
                   stamp = TRUE) {
   # seed
   panda_seed <-
-    if (!is.numeric(panda) && is.null(descriptor)) {
+    if (!is.numeric(panda) && is.null(input_descriptor)) {
       seq(1, 100) %>% sample(1)
-    } else if (!is.null(descriptor)) {
+    } else if (!is.null(input_descriptor)) {
       pandas %>%
-        dplyr::filter(descriptor == !!descriptor) %>%
+        dplyr::filter(descriptor == !!input_descriptor) %>%
         purrr::pluck("seed")
     } else {
       panda
@@ -106,7 +106,6 @@ panda <- function(msg = NULL,
     )
 
 
-
   # add text
 
   stamp_text <- dplyr::if_else(
@@ -123,7 +122,7 @@ panda <- function(msg = NULL,
     NULL
   )
 
-  add_text <- if (is.null(msg)) {
+  add_msg <- if (is.null(msg)) {
     panda_plot
   } else {
     panda_plot +
@@ -138,17 +137,43 @@ panda <- function(msg = NULL,
 
   }
 
-  name_tag <- add_text +
+  pandas_panda <- if (!is.null(input_descriptor)) {
+    pandas %>%
+      dplyr::filter(descriptor == !!input_descriptor)
+  }
+
+  # if the panda is named and adopted
+  tagged_adopted <- ""
+    # dplyr::case_when(
+    #   is.null(input_descriptor) ~ pandas_panda,
+    #   !is.null(input_descriptor) &&
+    #   input_descriptor %in%
+    #     (pandas %>% purrr::pluck("descriptor")) &&
+    #     is.na(adopted_by) ~ paste(input_descriptor,
+    #                               " ((adopt me!))"),
+    #   !is.null(input_descriptor) &&
+    #     input_descriptor %in%
+    #     (pandas %>% purrr::pluck("descriptor")) &&
+    #     !is.na(adopted_by) ~ paste(input_descriptor,
+    #                               ", adopted by )",
+    #                               pandas_panda %>% purrr::pluck("adopted_by")),
+    #   TRUE ~ "error"
+    #
+    # )
+
+
+  name_tag <- add_msg +
     ggplot2::annotate(
       "text",
       x = panda_body_coord("head", "x") +
         (panda_body_coord("head", "radius") * 2.3),
       y = panda_body_coord("body", "y") - panda_body_coord("body", "radius"),
       colour = "black",
-      label = stringr::str_wrap(paste("--", descriptor), width = 25)
+      label = stringr::str_wrap(paste("--", tagged_adopted), width = 25)
     )
 
-  output_plot <- add_text +
+
+  output_plot <- name_tag +
     ggplot2::annotate(
       "text",
       x =  panda_body_coord("head", "x") -
