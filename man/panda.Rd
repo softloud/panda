@@ -4,7 +4,13 @@
 \alias{panda}
 \title{Make a panda}
 \usage{
-panda(msg = NULL, input_descriptor = NULL, panda = "random", stamp = TRUE)
+panda(
+  msg = NULL,
+  show_background = TRUE,
+  input_descriptor = NULL,
+  panda = "random",
+  stamp = TRUE
+)
 }
 \arguments{
 \item{msg}{The panda can speak your words.}

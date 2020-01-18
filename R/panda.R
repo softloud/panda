@@ -9,6 +9,7 @@
 #' @export
 
 panda <- function(msg = NULL,
+                  show_background = TRUE,
                   input_descriptor = NULL,
                   panda = "random",
                   stamp = TRUE) {
@@ -173,7 +174,7 @@ panda <- function(msg = NULL,
     )
 
 
-  output_plot <- name_tag +
+  with_name_tag_plot <- name_tag +
     ggplot2::annotate(
       "text",
       x =  panda_body_coord("head", "x") -
@@ -182,11 +183,17 @@ panda <- function(msg = NULL,
       colour = "lightgrey",
       size = 2.7,
       label = stringr::str_wrap(stamp_text, width = 15)
-    ) +
-    ggplot2::theme_void()
+    )
+
+  # set background
+  set_background <-
+      if(show_background) with_name_tag_plot
+      else with_name_tag_plot + ggplot2::theme_void()
+
+
 
   # output seed
   cat(paste("Set panda =", panda_seed, "to reproduce this panda.\n"))
-  output_plot
+  set_background
 
 }
