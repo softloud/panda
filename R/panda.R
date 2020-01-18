@@ -146,7 +146,7 @@ panda <- function(msg = NULL,
   # if the panda is named and adopted
   tagged_adopted <-
     dplyr::case_when(
-      is.null(input_descriptor) ~ paste("panda ", panda_seed),
+      is.null(input_descriptor) ~ paste("reproducibility panda ", panda_seed),
       !is.null(input_descriptor) &&
       input_descriptor %in%
         (pandas %>% purrr::pluck("descriptor")) &&
@@ -170,7 +170,7 @@ panda <- function(msg = NULL,
         (panda_body_coord("head", "radius") * 1.4),
       y = panda_body_coord("body", "y") - panda_body_coord("body", "radius"),
       colour = "black",
-      label = stringr::str_wrap(paste("--", tagged_adopted), width = 25)
+      label = stringr::str_wrap(paste("--", tagged_adopted), width = 30)
     )
 
 
