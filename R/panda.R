@@ -9,10 +9,10 @@
 #' @export
 
 panda <- function(msg = NULL,
-                  show_background = TRUE,
-                  input_descriptor = NULL,
+                  show_background = FALSE,
+                  input_descriptor = "",
                   panda = "random",
-                  stamp = TRUE) {
+                  stamp = FALSE) {
   # seed
   panda_seed <-
     if (!is.numeric(panda) && is.null(input_descriptor)) {
@@ -158,7 +158,7 @@ panda <- function(msg = NULL,
         !is.na(pandas_panda %>% purrr::pluck("adopted_by")) ~ paste(input_descriptor,
                                   ", adopted by )",
                                   pandas_panda %>% purrr::pluck("adopted_by")),
-      TRUE ~ "error"
+      TRUE ~ " "
 
     )
 
